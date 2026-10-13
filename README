@@ -1,0 +1,5 @@
+Primeira versão do sistema de gerenciamento de estoque
+
+O schema do bando de dados é criado no arquivo sql, para ser usável em outros sistemas.
+O Banco de dados é criado através do arquivo main, juntamente com as funções que permitem incluir produtos, atualizar, excluir e ler.
+O sistema ainda não conta com validações para alterar ou deletar produtos cadastrados, nem com a alteração do estoque com base em vendas realizadas. 
