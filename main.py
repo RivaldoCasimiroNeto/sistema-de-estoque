@@ -32,8 +32,20 @@ def atualizar_produto(qtd, valor_unidade, id):
     conexao.commit()
     print("Produto atualizado com sucesso.")
 
-def deletar_produto(id):
+def deletar_produto(conexao, id):
+        cursor = conexao.cursor()
+        cursor.execute("SELECT 1 FROM estoque WHERE id =?", (id,))
+        
+        produto = cursor.fetchone()
+        if produto is None: 
+             print("Produto não encontrado.")
+             return
+        
         cursor.execute("DELETE FROM estoque WHERE id = ?", (id,))
+
         conexao.commit()
         print("Produto deletado com sucesso!")
 
+conexao = conectar()
+cadastrar_produto(1445, 'Vestido', 200, 18000)
+ler()
